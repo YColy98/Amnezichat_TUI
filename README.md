@@ -102,7 +102,6 @@ Amnezichat offers a highly secure and privacy-focused messaging experience by en
 You can access **Amnezichat_TUI** source code from multiple mirror repositories:
 
 - 🔗 **[Disroot Main Repository](https://git.disroot.org/UmutCamliyurt/Amnezichat_TUI)**
-- 🔗 **[Codeberg Mirror](https://codeberg.org/umutcamliyurt/Amnezichat_TUI)**
 - 🔗 **[GitHub Mirror](https://github.com/umutcamliyurt/Amnezichat_TUI)**
 
 <!-- LICENSE -->
