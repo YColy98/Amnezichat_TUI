@@ -102,7 +102,6 @@ Amnezichat, hiçbir kayıt tutulmamasını ve tüm mesaj verilerinin yalnızca s
 **Amnezichat_TUI** kaynak koduna birden fazla yedek (ayna) depo üzerinden erişebilirsiniz:
 
 - 🔗 **[Ana Depo (Disroot)](https://git.disroot.org/UmutCamliyurt/Amnezichat_TUI)**
-- 🔗 **[Codeberg Aynası](https://codeberg.org/umutcamliyurt/Amnezichat_TUI)**
 - 🔗 **[GitHub Aynası](https://github.com/umutcamliyurt/Amnezichat_TUI)**
 
 <!-- LİSANS -->
